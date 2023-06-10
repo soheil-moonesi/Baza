@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>baza-بازی اعداد</title>
+  </head>
+  <body>
+    <!-- ----------------------------start game 0 html + tailwind------------------------ -->
+
+    <div
+      class="snap-y snap-mandatory h-screen overflow-scroll snap-always relative overflow-x-hidden"
+    >
+      <!-- <div class="h-screen _main snap-start "> -->
+      <div class="fixed m-5">
+        <button class="btn-music w-10 h-6" onclick="playAudio()">
+          <img src="play.svg" alt="" />
+        </button>
+        <button class="btn-music w-10 h-6" onclick="pauseAudio()">
+          <img src="pause.svg" alt="" />
+        </button>
+      </div>
+      <div class="fixed right-0 m-5 flex">
+        <button class="github w-10 h-6">
+          <a href="https://github.com/soheil-moonesi/Baza"
+            ><img src="github.svg" alt=""
+          /></a>
+        </button>
+        <div class="linkdin w-10 h-6">
+          <a href="">
+            <img src="linkedin.svg" alt=""
+          /></a>
+        </div>
+      </div>
+
+      <audio class="hidden" controls loop id="music">
+        <source src="music.mp3" type="audio/mp3" />
+
+        Your browser does not support the audio tag.
+      </audio>
+
+      <!-- <audio src="music.mp3" loop></audio> -->
+
+      <!-- </div> -->
+      <!-- ----------------------------end game 0 html + tailwind------------------------ -->
+      <!-- ----------------------- start  html + tailwind game 1 -------------- -->
+      <div class="flex items-center justify-center h-screen _main snap-start">
+        <div
+          class="bg-white bg-opacity-20 backdrop-blur-lg drop-shadow flex flex-col items-center border-2 rounded-md border-sky-200 shadow-lg p-4"
+        >
+          <h1 class="flex mb-5 text-center">
+            از بین 1 تا 10 یک عدد رو حدس بزنید
+          </h1>
+
+          <!-- <div class="flex justify-center m-6"> -->
+          <input
+            class="w-52 h-56 appearance-none text-9xl bg-slate-500 text-center"
+            type="number"
+            id="xnum"
+          />
+          <div class="flex justify-center gap-7 javab"></div>
+          <div class="flex w-auto h-auto text-center _txt"></div>
+          <div class="_txt2"></div>
+          <div>❤️ <span id="life">3</span> ⚔️<span id="strong-attack-game1">0</span></div>
+          <div class="flex justify-center">
+            <button id="submit-game1"
+              onclick="answer()"
+              type="button"
+              class="mt-7 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+            >
+              حدس بزنید
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- ----------------------- end  html + tailwind game 1 -------------- -->
+
+      <!-- ---------------start html +tailwind game 2 section ---------------------  -->
+
+      <div
+        id="sec2"
+        class="items-center flex justify-center h-screen snap-start"
+      >
+        <div
+          class="bg-white bg-opacity-20 backdrop-blur-lg drop-shadow main-box flex flex-col border-2 rounded-md border-sky-200 shadow-lg"
+        >
+          <div class="flex justify-center text-center p-3">
+            شما باید توی 0.5 ثانیه، عدد ظاهر شده رو حفظ کنید و بنویسید
+          </div>
+          <div id="show-box" class="box-show flex w-auto justify-center mt-3">
+            <div
+              class="border-2 border-black w-16 h-20 flex justify-center items-center text-7xl"
+            ></div>
+            <div
+              class="border-2 border-black w-16 h-20 flex justify-center items-center text-7xl"
+            ></div>
+            <div
+              class="border-2 border-black w-16 h-20 flex justify-center items-center text-7xl"
+            ></div>
+            <div
+              class="border-2 border-black w-16 h-20 flex justify-center items-center text-7xl"
+            ></div>
+            <div
+              class="border-2 border-black w-16 h-20 flex justify-center items-center text-7xl"
+            ></div>
+          </div>
+          <div class="answer-box flex mt-9 justify-center">
+            <input
+              class="w-80 h-20 appearance-none text-7xl bg-slate-500 text-center border-2 border-black"
+              type="number"
+              id="S-num"
+            />
+          </div>
+          <div class="flex justify-center">
+            ❤️ <span id="life-icon">3</span> ⚔️<span id="strong-attack-game2">0</span>
+          </div>
+          <div class="flex justify-center">
+            <button
+              onclick="game2start()"
+              id="sabt-btn"
+              type="button"
+              class="hidden mt-7 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+            >
+              ثبت عدد
+            </button>
+            <button
+              onclick="game()"
+              type="button"
+              id="adade-jadid"
+              class="mb-5 mt-7 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+            >
+              نمایش عدد
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- ---------------end html +tailwind game 2 section ---------------------  -->
+      <!-- ----------------------- start  html + tailwind game 3 -------------- -->
+
+      <div
+        id="sec3"
+        class="items-center flex justify-center h-screen snap-start"
+      >
+        <div
+          class="bg-white bg-opacity-20 backdrop-blur-lg drop-shadow main-box flex flex-col rounded-md border-sky-200 shadow-lg"
+        >
+          <div class="flex justify-center text-center p-3 pt-5">
+            شما باید توی 0.5 ثانیه، عدد ظاهر شده رو حفظ کنید و مجموع اعداد رو
+            بنویسید
+          </div>
+          <div
+            id="show-box-ga"
+            class="box-show-gal flex w-auto justify-center mt-3"
+          >
+            <div
+              class="border-2 border-black w-16 h-20 flex justify-center items-center text-7xl"
+            ></div>
+            <div
+              class="border-2 border-black w-16 h-20 flex justify-center items-center text-7xl"
+            ></div>
+            <div
+              class="border-2 border-black w-16 h-20 flex justify-center items-center text-7xl"
+            ></div>
+            <div
+              class="border-2 border-black w-16 h-20 flex justify-center items-center text-7xl"
+            ></div>
+            <div
+              class="border-2 border-black w-16 h-20 flex justify-center items-center text-7xl"
+            ></div>
+          </div>
+          <div class="answer-box flex mt-9 justify-center">
+            <input
+              class="w-80 h-20 appearance-none text-7xl bg-slate-500 text-center border-2 border-black"
+              type="number"
+              id="S-num-ga"
+            />
+          </div>
+          <div class="flex justify-center">
+            ❤️ <span id="life-icon-ga">3</span>⚔️ <span id="strong-attack-game3">0</span>
+          </div>
+          <div class="flex justify-center">
+            <button
+              onclick="check_health_show_hide_number()"
+              id="sabt-btn-ga"
+              type="button"
+              class="mb-5 hidden mt-7 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+            >
+              ثبت عدد
+            </button>
+            <button
+              onclick="_run_num_gen_ga()"
+              type="button"
+              id="adade-jadid-ga"
+              class="mb-5 mt-7 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+            >
+              نمایش عدد
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- ----------------------- end  html + tailwind game 3 -------------- -->
+      <!-- ----------------------- start  html + tailwind game 4 -------------- -->
+      <div id="sec4" class=" items-center flex justify-center h-screen snap-start "
+      >
+        <div class="flex-col bg-white bg-opacity-20 backdrop-blur-lg drop-shadow main-box rounded-md border-sky-200 shadow-lg">
+       <div class="justify-center text-center p-3 pt-3">با حمله و حمله های قدرتمند ای که در طی بازی بدست آوردید غول رو شکست بدید</div>
+
+<div class="m-5">
+          <div class="text-center text-black mb-1 text-lg font-medium ">خون غول</div>
+          <div class="w-full h-6 bg-gray-200 rounded-full dark:bg-gray-700">
+            <div id="monster-health" class="h-6 bg-red-600 rounded-full dark:bg-red-500" style="width: 100%"></div>
+          </div>
+
+          <div class="text-center text-black mb-1 text-lg font-medium "> <span id="bonus-life">🩹</span>خون شما </div>
+          <div class="w-full h-6 bg-gray-200 rounded-full dark:bg-gray-700">
+            <div id="player-health" class="h-6 bg-red-600 rounded-full dark:bg-red-500" style="width: 100%"></div>
+          </div>
+</div>
+          <div id="controls" class="flex items-center justify-center">
+            <div class="flex flex-col items-center justify-center">
+              <button class="flex mb-3 mt-7 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" id="attack-btn">🗡️ حمله</button>
+              <button class="flex mb-5 mt-7 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" id="strong-attack-btn"><span id="strong-attack-icon-game4"></span> ⚔️ حمله قدرتمند </button>
+              <button class="flex focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" id="heal-btn"> 🩹جان اضافه</button>
+            </div>
+          </div>
+      </div>
+      </div>
+
+      <dialog id="news-box" class=" h-fit w-fit rounded-lg">
+        <div class="justify-center items-center flex flex-col text-center justify-center ">
+          <div class="flex">❤️:تعداد دفعاتی که میتوانید یک بازی رو انجام بدید</div>
+          <div class="flex">⚔️:در جنگ با غول میتوانید از این آیتم استفاده کنید</div>
+          <div class="flex">🔊:پخش موسیقی در حین بازی</div>
+
+          <button type="button" id="close-news" class=" mt-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">خواندم</button>
+        </div>
+      </dialog>
+
+
+      <!-- ----------------------- end  html + tailwind game 4 -------------- -->
+
+      <!-- ----------------------- start  html + tailwind game 5 -------------- -->
+
+
+      <dialog id="winner-modal" class=" h-fit w-fit rounded-lg">
+        <div class="justify-center items-center flex flex-col text-center justify-center ">
+          <div class="flex">آفرین شما بردید</div>
+          <button type="button" class="close-news mt-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">باشه</button>
+        </div>
+      </dialog>
+
+      <dialog id="loose-modal" class=" h-fit w-fit rounded-lg">
+        <div class="justify-center items-center flex flex-col text-center justify-center ">
+          <div class="flex">شما باختید</div>
+          <button type="button" class=" close-news mt-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">باشه</button>
+        </div>
+      </dialog>
+      <dialog id="draw-modal" class=" h-fit w-fit rounded-lg">
+        <div class="justify-center items-center flex flex-col text-center justify-center ">
+          <div class="flex">مساوی</div>
+          <button type="button" class=" close-news mt-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">باشه</button>
+        </div>
+      </dialog>
+
+      <div id="sec5" class="flex items-center justify-center h-screen _main snap-start">
+        <div
+                class="bg-white bg-opacity-20 backdrop-blur-lg drop-shadow flex flex-col items-center border-2 rounded-md border-sky-200 shadow-lg p-4"
+        >
+          <h1 class="flex mb-5 text-center">
+          </h1>
+          <div class="flex">
+            <div
+                    data-status="off" data-count="off"
+                    class="box flex border-2 w-20 h-20 justify-center items-center"
+            >
+
+            </div>
+            <div
+                    data-status="off" data-count="off"
+                    class="box flex border-2 w-20 h-20 justify-center items-center"
+            >
+
+            </div>
+            <div
+                    data-status="off" data-count="off"
+                    class="box flex border-2 w-20 h-20 justify-center items-center"
+            >
+
+            </div>
+          </div>
+          <div class="flex">
+            <div
+                    data-status="off" data-count="off"
+                    class="box flex border-2 w-20 h-20 justify-center items-center"
+            >
+
+            </div>
+            <div
+                    data-status="off" data-count="off"
+                    class="box flex border-2 w-20 h-20 justify-center items-center"
+            >
+
+            </div>
+            <div
+                    data-status="off" data-count="off"
+                    class="box flex border-2 w-20 h-20 justify-center items-center"
+            >
+
+            </div>
+          </div>
+          <div class="flex">
+            <div
+                    data-status="off" data-count="off"
+                    class="box flex border-2 w-20 h-20 justify-center items-center"
+            >
+
+            </div>
+            <div
+                    data-status="off" data-count="off"
+                    class="box flex border-2 w-20 h-20 justify-center items-center"
+            >
+
+            </div>
+            <div
+                    data-status="off" data-count="off"
+                    class="box flex border-2 w-20 h-20 justify-center items-center"
+            >
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ----------------------- end  html + tailwind game 5 -------------- -->
+
+
+    </div>
+
+
+  </body>
+  <script>
+    //  --------------------------  start of js game 0 ------------------------
+    // 'use strict'
+    ////----------------start modal with dialog box----------
+    const dialog = document.getElementById("news-box")
+    const news_close = document.getElementById("close-news")
+
+    dialog.showModal()
+    news_close.addEventListener('click',() =>{
+      dialog.close()
+    })
+    ////----------------end modal with dialog box----------
+
+
+    let strong_attack_count_global =0
+    turn = 0;
+    _main = document.getElementsByClassName("_main")[0];
+    let _sec2 = document.getElementById("sec2");
+    let _sec3 = document.getElementById("sec3");
+    let _sec4 = document.getElementById("sec4");
+    let _sec5=document.getElementById("sec5");
+
+    let _randnum_arr = [];
+    let colorSelected = 0;
+    randcol();
+
+    function randcol() {
+      for (i = 0; i < 5; i++) {
+        function _itera() {
+          colorSelected = Math.floor(Math.random() * 5);
+          yyy = _randnum_arr.includes(colorSelected);
+          if (yyy == false) {
+            _randnum_arr.push(colorSelected);
+            console.log("sss");
+          } else {
+            _itera();
+          }
+        }
+        _itera();
+        console.log(yyy);
+
+        console.log(_randnum_arr);
+      }
+    }
+
+    // colorSelected = Math.floor(Math.random() * 4);
+    _colors = [
+      "BlueViolet",
+      "DarkOrange",
+      "Gold",
+      "RoyalBlue",
+      "Yellow",
+      "PaleGreen"
+    ];
+    x = _colors[_randnum_arr[0]];
+    _main.style.backgroundColor = x;
+    x2 = _colors[_randnum_arr[1]];
+    _sec2.style.backgroundColor = x2;
+    x3 = _colors[_randnum_arr[2]];
+    _sec3.style.backgroundColor = x3;
+    x4 = _colors[_randnum_arr[3]];
+    _sec4.style.backgroundColor = x4;
+    x5 = _colors[_randnum_arr[4]];
+    _sec5.style.backgroundColor = x5;
+
+
+    _txt = document.getElementsByClassName("_txt")[0];
+
+
+    xx = document.getElementById("music");
+    function playAudio() {
+      xx.play();
+    }
+
+    function pauseAudio() {
+      xx.pause();
+    }
+
+
+    //  --------------------------  end of js game 0 ------------------------
+
+  </script>
+  <script src="fun1.js"></script>
+  <script src="fun2.js"></script>
+  <script src="fun3.js"></script>
+  <script src="fun4.js"></script>
+  <script src="fun5.js"></script>
+
+
+</html>
